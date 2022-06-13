@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "clocktower"
+version = "0.1.0"
+description = "An automated script to download latest mangaplus chapters"
+authors = ["noaione <noaione0809@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+APScheduler = "^3.9.1"
+aiohttp = "^3.8.1"
+orjson = "^3.7.2"
+"ruamel.yaml" = "^0.17.21"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+black = "^22.3.0"
+pytest = "^7.1.2"
+
+[tool.poetry.scripts]
+clocktower = "clocktower.entrypoint:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ["py38", "py39"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+extend_skip = ["env/**", "venv/**", ".pytest_cache/**", ".venv/**", "__pycache__/**"]
+line_length = 120
+skip_gitignore = true
